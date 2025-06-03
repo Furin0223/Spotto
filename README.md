@@ -1,7 +1,7 @@
 Collection of cool Japanese trains.
 
-To Do Now:
-
+**To Do Now:
+**
 -Upload Multiple Images
 
 -Infinite Scrolling Carousel
@@ -10,8 +10,8 @@ To Do Now:
 
 -General UI improvements
 
-Future Features:
-
+**Future Features:
+**
 -User account creation
 
 -Comments and reviewing of trains
