@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Spotto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="base-top">
+        <div class="base-bg-image">
+        </div>
+        <div class="header">
+            <div class="base-page-title">
+                <header><h1><a href="{{ url_for('main.index') }}">🚄 Spotto</a></h1></header>
+            </div>
+            <div class="top-menu-bar">
+                <nav>
+                    <a href="/">Home</a> | 
+                    <a href="/about">About</a> | 
+                    <a href="{{ url_for('main.add_train') }}">Add train</a>
+                </nav>
+            </div>
+        </div>
+    </div>       
+    <main>{% block content %}{% endblock %}</main>
+    <footer><p>Made with ❤️ by Sam</p></footer>
+    
+    
+</body>
+</html>

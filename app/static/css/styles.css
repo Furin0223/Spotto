@@ -1,0 +1,119 @@
+body {
+    background-color: rgb(18, 18, 18);
+    color: rgb(235, 235, 235);
+}
+
+nav {
+    background-color: rgb(30, 30, 30);
+}
+
+a {
+    color: rgb(235, 235, 235);
+}
+
+a:hover {
+    color: rgb(10, 132, 255);
+}
+
+.base-top{
+    position: relative;
+    width: 100%;
+    height: 400px;
+
+}
+
+.base-bg-image{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/base-bg-image.jpg);
+    background-position: bottom;
+    background-size: cover;
+    filter: blur(3px);
+    z-index: 1;
+}
+
+.header{
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 2; 
+}
+
+.base-page-title {
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 3em;
+    height: 150px;
+
+}
+
+.top-menu-bar {
+    flex: 1;
+    text-align: right;
+}
+
+.top-menu-bar nav {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.top-menu-bar a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+.featured-trains{
+    color: rgb(235, 235, 235);
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.scroll-container {
+    margin: 0 auto;
+    display: flex;
+    border-radius: 5px;
+    border-color: aliceblue;
+    overflow-x: hidden;
+    gap: 1rem;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    width: 300px;
+}
+
+.scroll-item {
+    flex: 0 0 auto; /* prevents shrinking, keeps them side-by-side */
+    text-align: center;
+    width: 300px; /* adjust as needed */
+}
+
+.scroll-item img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.scroll-item p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edit train</h2>
+
+ <form method="post" action="/edit_train" enctype="multipart/form-data">
+  <label for="name_en">Name in English:</label><br>
+  <input type="text" id="name_en" name="name_en" value= "{{train.name_en}}"  required><br><br>
+
+  <label for="name_jp">Name in Japanese:</label><br>
+  <input type="text" id="name_jp" name="name_jp" value= "{{train.name_jp}}"><br><br>
+
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description" value= "{{train.description}}"><br><br>
+
+  <label for="images">Upload images:</label><br>
+  <input type="file" name="image_filename" accept="image/*"><br>
+  
+  <img src="{{ url_for('static', filename='images/' ~ train.image_filename) }}" width="150" height="100">
+  <br><br>
+
+  <label for="region">Region:</label><br>
+  <input type="text" id="region" name="region" value= "{{train.region}}"><br><br>
+
+  <label for="operator">Operator:</label><br>
+  <input type="text" id="operator" name="operator" value= "{{train.operator}}"><br><br>
+
+  <label for="tags">Tags: separate with commas</label><br>
+  <input type="text" id="tags" name="tags" value= "{{train.tags}}"><br><br>
+
+  <input type="submit" value="Submit">
+</form> 
+
+{% endblock %}

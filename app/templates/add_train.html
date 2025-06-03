@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add train</h2>
+
+ <form method="post" action="/add_train" enctype="multipart/form-data">
+  <label for="name_en">Name in English:</label><br>
+  <input type="text" id="name_en" name="name_en" required><br><br>
+
+  <label for="name_jp">Name in Japanese:</label><br>
+  <input type="text" id="name_jp" name="name_jp"><br><br>
+
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description"><br><br>
+
+  <label for="images">Upload images:</label><br>
+  <input type="file" name="image_filename" accept="image/*" multiple><br><br>
+
+  <label for="region">Region:</label><br>
+  <input type="text" id="region" name="region"><br><br>
+
+  <label for="operator">Operator:</label><br>
+  <input type="text" id="operator" name="operator"><br><br>
+
+  <label for="tags">Tags: separate with commas</label><br>
+  <input type="text" id="tags" name="tags"><br><br>
+
+  <input type="submit" value="Submit">
+</form> 
+
+{% endblock %}

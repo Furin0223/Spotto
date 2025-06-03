@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="/delete_train/{{train.id}}" 
+onsubmit="return confirm('Delete this train?');">
+    <button type="submit">Delete</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ train.name_en }} ({{ train.name_jp }})</h2>
+<a href="{{ url_for('main.edit_train', train_id = train.id) }}">Edit</a>
+<a href="{{ url_for('main.delete_train', train_id = train.id) }}">Delete</a> <br>
+<img src="{{ url_for('static', filename='images/' ~ train.image_filename) }}" width="400">
+<p><strong>Operator:</strong> {{ train.operator }}</p>
+<p><strong>Region:</strong> {{ train.region }}</p>
+<p><strong>Tags:</strong> {{ train.tags }}</p>
+<p>{{ train.description }}</p>
+<br>
+<a href="{{ url_for('main.index') }}">⬅ Back to all trains</a>
+{% endblock %}

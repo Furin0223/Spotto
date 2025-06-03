@@ -1,0 +1,11 @@
+| Element            | Description                 | RGB Value            |
+| ------------------ | --------------------------- | -------------------- |
+| **Background**     | Main background color       | `rgb(18, 18, 18)`    |
+| **Surface**        | Panels, cards, secondary bg | `rgb(30, 30, 30)`    |
+| **Primary Text**   | Main readable text          | `rgb(235, 235, 235)` |
+| **Secondary Text** | Less prominent text         | `rgb(160, 160, 160)` |
+| **Primary Accent** | Buttons, highlights         | `rgb(0, 122, 255)`   |
+| **Accent Hover**   | Hover effect for accent     | `rgb(10, 132, 255)`  |
+| **Error**          | Error messages, warnings    | `rgb(255, 69, 58)`   |
+| **Success**        | Success/confirmation green  | `rgb(48, 209, 88)`   |
+| **Border**         | Subtle borders/dividers     | `rgb(60, 60, 60)`    |
