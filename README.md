@@ -2,6 +2,7 @@ Collection of cool Japanese trains.
 
 **To Do Now:
 **
+
 -Upload Multiple Images
 
 -Infinite Scrolling Carousel
@@ -12,6 +13,7 @@ Collection of cool Japanese trains.
 
 **Future Features:
 **
+
 -User account creation
 
 -Comments and reviewing of trains
