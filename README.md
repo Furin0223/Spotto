@@ -1,7 +1,6 @@
 Collection of cool Japanese trains.
 
-**To Do Now:
-**
+To Do Now:
 
 -Upload Multiple Images
 
@@ -11,8 +10,7 @@ Collection of cool Japanese trains.
 
 -General UI improvements
 
-**Future Features:
-**
+Future Features:
 
 -User account creation
 
