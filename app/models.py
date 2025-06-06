@@ -9,3 +9,4 @@ class Train(db.Model):
     region = db.Column(db.String(50), nullable=True)
     operator = db.Column(db.String(50), nullable=True)
     tags = db.Column(db.String(200), nullable=True)
+    train_model = db.Column(db.String(50), nullable=True)

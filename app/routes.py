@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, flash, current_app
+from flask import Blueprint, render_template, request, redirect, flash, current_app, url_for
 from .models import Train
 from . import db
 import os
@@ -45,6 +45,7 @@ def add_train():
         region = request.form.get('region')
         operator = request.form.get('operator')
         tags = request.form.get('tags')
+        train_model = request.form.get('train_model')
 
         image_file = request.files.get('image_filename')
         image_filename = None
@@ -61,6 +62,7 @@ def add_train():
         train = Train(
             name_en=name_en,
             name_jp=name_jp,
+            train_model=train_model,
             description=description,
             image_filename=image_filename,
             region=region,
@@ -70,12 +72,13 @@ def add_train():
         db.session.add(train)
         db.session.commit()
         flash("Train added successfully!")
-        return redirect('/')
+        return redirect(url_for('main.train_detail', train_id=train.id))
     
     return render_template('add_train.html')
 
 @main.route('/edit_train/<int:train_id>', methods=['GET', 'POST'])
 def edit_train(train_id):
+    train = Train.query.get_or_404(train_id)
     if request.method == 'POST':
         name_en = request.form.get('name_en')
         name_jp = request.form.get('name_jp')
@@ -83,10 +86,16 @@ def edit_train(train_id):
         region = request.form.get('region')
         operator = request.form.get('operator')
         tags = request.form.get('tags')
-        image_file = request.files.get('image_filename')
-        image_filename = None
+        train_model = request.form.get('train_model')
 
-        if image_file and allowed_file(image_file.filename) and image_file != train.images:
+        image_file = None
+        if request.files.get('image_filename'):
+            image_file = request.files.get('image_filename')
+            image_filename = None
+        else:
+            image_filename = train.image_filename
+
+        if image_file and allowed_file(image_file.filename):
             filename = secure_filename(image_file.filename)
             upload_folder = os.path.join(current_app.root_path, current_app.config['UPLOAD_FOLDER'])
             os.makedirs(upload_folder, exist_ok=True)
@@ -94,20 +103,18 @@ def edit_train(train_id):
             image_file.save(image_path) 
             image_filename = filename
 
-
-        train = Train.query.get_or_404(train_id)
-
-        train.name_en=name_en,
-        train.name_jp=name_jp,
-        train.description=description,
-        train.image_filename=image_filename,
-        train.region=region,
-        train.operator=operator,
+        train.image_filename=image_filename
+        train.name_en=name_en
+        train.name_jp=name_jp
+        train.train_model=train_model
+        train.description=description
+        train.region=region
+        train.operator=operator
         train.tags=tags
-        
+
         db.session.add(train)
         db.session.commit()
-        return redirect('/train_detail.html')
+        return redirect(url_for('main.train_detail', train_id=train.id))
 
     return render_template('edit_train.html', train=train)
 
