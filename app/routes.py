@@ -21,6 +21,11 @@ def train_detail(train_id):
 def about():
     return render_template('about.html')
 
+@main.route('/trains_list')
+def trains_list():
+    trains = Train.query.all()
+    return render_template('trains_list.html', trains = trains)
+
 @main.route('/delete_train/<int:train_id>', methods=['GET', 'POST'])
 def delete_train(train_id):
     train = Train.query.get(train_id)

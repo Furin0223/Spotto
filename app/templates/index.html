@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="featured-trains"><h2>Featured Trains</h2>
+ <script src="/static/scripts/carousel.js"></script> 
+    <div class="featured-trains">
+        <h2>Featured Trains</h2>
         <div class="carousel-wrapper">
             <button id="prevBtn"><</button>
             <div class="scroll-container" id="carousel">
-                {% for train in trains %}
+                {% for train in trains[:5] %}
                 <div class="scroll-item" >
                     <a href="{{ url_for('main.train_detail', train_id=train.id) }}">
                         <img src="{{ url_for('static', filename='images/' ~ train.image_filename) }}" alt="train.name_en">
@@ -16,36 +18,23 @@
                 </div>
                 {% endfor %}
             </div>
-            <button id="nextBtn">></button>
+            <button class="nextBtn" id="nextBtn">></button>
         </div>
-            
+        <div class="indicator-container" id="scrollIndicators">
+            <span class="dot"> </span>  
+            <span class="dot"> </span>
+            <span class="dot"> </span>
+            <span class="dot"> </span>
+            <span class="dot"> </span> 
+            <span class="big-dot"> </span>
+            <span class="dot"> </span>
+            <span class="dot"> </span>
+            <span class="dot"> </span>
+            <span class="dot"> </span> 
+            <span class="dot"> </span>  
+            <span class="dot"> </span>  
+        </div>
     </div>
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() { // Ensure DOM is loaded
-    const scrollContainer = document.getElementById('carousel'); // Get the scrollable container
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    console.log("Asdf")
-    // To get the width of a single item, we need to select one of them
-    // and get its offsetWidth. We can assume all items have the same width.
-    const firstScrollItem = document.querySelector('.scroll-item');
-    let itemWidth = 0;
-    if (firstScrollItem) {
-        itemWidth = firstScrollItem.offsetWidth;
-    }
-
-    nextBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: itemWidth, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: -itemWidth, behavior: 'smooth' });
-    });
-});
-</script>
-
 {% endblock %}
 
 
